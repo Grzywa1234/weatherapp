@@ -73,6 +73,8 @@ function App() {
           {Math.round(weather.main.temp)}°C
           </div>
       <div className="weather">{weather.weather[0].main}</div>
+      <div className="weather">{weather.main.pressure} hPa</div>
+      <div className="weather">Wind: {weather.wind.deg}deg {weather.wind.speed}m/s</div>
         </div>
       </div>
       ) : (
