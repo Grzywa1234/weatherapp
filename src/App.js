@@ -8,6 +8,7 @@ function App() {
   const [query, setQuery] = useState('');
   const [weather, setWeather] = useState({})
 
+  /*
   const search = evt => {
     if (evt.key === "Enter") {
       fetch(`${api.base}weather?q=${query}&units=metric&appid=${api.key}`)
@@ -18,6 +19,17 @@ function App() {
       console.log(result);
       })
     }
+  }
+  */
+
+  const search = () => {
+    fetch(`${api.base}weather?q=${query}&units=metric&appid=${api.key}`)
+    .then(result => result.json())
+    .then(result => { 
+    setWeather(result);
+    
+    console.log(result);
+    })
   }
 
   const dateBuilder = (d) => {
@@ -40,10 +52,12 @@ function App() {
       <main> 
         <div className='search-box'>
           <input type="text" className="search-bar" 
-          placeholder="Search..."
+          placeholder="Type here..."
           onChange={e => setQuery(e.target.value)}
           value={query}
-          onKeyPress={search}
+          onKeyUp={search}
+          /*onKeyPress={search}*/
+
           />
         </div>
 
@@ -64,7 +78,7 @@ function App() {
       ) : (
         <div>
         <div className="location-box">
-         <div className="location">Type in localization please.</div>
+         <div className="location">Type in localization above.</div>
           <div  className="date">{dateBuilder(new Date())}</div>
         </div>
 
