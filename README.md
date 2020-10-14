@@ -1,3 +1,3 @@
 ## Weatherapp
 
-Form youtube turtorial to practice React Hooks and API
+From youtube turtorial to practice React Hooks and API
